@@ -52,6 +52,7 @@ class Session(models.Model):
 
     @api.depends('seats', 'attendee_ids')
     def _taken_seats(self):
+        print('depends')
         for r in self:
             if not r.seats:
                 r.taken_seats = 0.0
